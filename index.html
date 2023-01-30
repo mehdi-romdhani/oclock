@@ -1,0 +1,57 @@
+<!-- Auteur : Mehdi Romdhani
+Projet : O'clock
+Date : 30 Janvier 2023  -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- LINK CSS -->
+    <link rel="stylesheet" href="./assets/style.css" />
+    <!-- LINK JS -->
+    <script src="./assets/script.js" defer></script>
+    <!-- LINK JQUERY -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+
+    <title>O'clock</title>
+  </head>
+  <body>
+    <div class="head-container">
+      <h1>O'clock</h1>
+    </div>
+
+    <div class="btn-container">
+      <button id="hor">Horloge</button>
+      <button id="min">Minuteur</button>
+      <button id="chro">Chronometre</button>
+      <button id="rev">Reveil</button>
+    </div>
+
+    <div class="horloge-container">
+      <p id="dateComplete"></p>
+    </div>
+    <!-- Minuteur -->
+    <!-- <div class="minuteur-container">
+      <p id="dateComplete">1</p>
+    </div> -->
+    <!-- Chronometre -->
+    <div class="chronometre-container">
+      <div class="chro">00:00:00</div>
+      <div class="btn-chrono">
+        <button class="start">Start</button>
+        <button class="stop">Stop</button>
+        <button class="tour">tour</button>
+        <button class="reset">Reset</button>
+      </div>
+      <div class="tourchrono">
+            
+      </div>
+    </div>
+    <!-- Reveil -->
+    <!-- <div class="reveil-container">
+        <p id="dateComplete">3</p>
+      </div> -->
+  </body>
+</html>

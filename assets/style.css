@@ -1,0 +1,59 @@
+body{
+    margin: 0;
+    padding: 0;
+
+}
+.head-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: aquamarine;
+}
+.btn-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+
+}
+.horloge-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    
+    border: 1px solid black;
+    height: 20vh;
+
+
+}
+.chronometre-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+    border: 1px solid black;
+    height: 20vh;
+
+
+}
+.chro{
+    display: flex;
+    flex-direction: row;
+    margin:2%;
+    font-family: monospace;
+    font-size: 2rem;
+}
+.btn-chrono{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    
+    
+}
+
+#dateComplete{
+
+    font-size: 2rem;
+    font-family: monospace;
+}
