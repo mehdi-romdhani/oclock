@@ -19,39 +19,35 @@ Date : 30 Janvier 2023  -->
   </head>
   <body>
     <div class="head-container">
-      <h1>O'clock</h1>
+      <h1>O'CL<span style="color: maroon">OC</span>K</h1>
     </div>
 
     <div class="btn-container">
-      <button id="hor">Horloge</button>
-      <button id="min">Minuteur</button>
-      <button id="chro">Chronometre</button>
-      <button id="rev">Reveil</button>
+      <button type="button" class="fill" id="hor">Horloge</button>
+      <button type="button" class="fill" id="min">Minuteur</button>
+      <button type="button" class="fill" id="chro">Chronometre</button>
+      <button type="button" class="fill" id="rev">Reveil</button>
     </div>
 
     <div class="horloge-container">
       <p id="dateComplete"></p>
     </div>
-    <!-- Minuteur -->
-    <!-- <div class="minuteur-container">
-      <p id="dateComplete">1</p>
-    </div> -->
+
     <!-- Chronometre -->
     <div class="chronometre-container">
       <div class="chro">00:00:00</div>
       <div class="btn-chrono">
-        <button class="start">Start</button>
-        <button class="stop">Stop</button>
-        <button class="tour">tour</button>
-        <button class="reset">Reset</button>
+        <button id="start" class="fill2">Start</button>
+        <button id="stop" class="fill2">Stop</button>
+        <button id="tour" class="fill2">tour</button>
+        <button id="reset" class="fill2">Reset</button>
       </div>
+
       <div class="tourchrono">
-            
+        <ul class="chronolist"></ul>
       </div>
     </div>
-    <!-- Reveil -->
-    <!-- <div class="reveil-container">
-        <p id="dateComplete">3</p>
-      </div> -->
+
+    <!-- Minuteur -->
   </body>
 </html>

@@ -1,39 +1,124 @@
 body{
     margin: 0;
     padding: 0;
-
+    
+    background-image: url('./barnett.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 }
 .head-container{
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
-    background-color: aquamarine;
+    /* align-items: center; */
+    /* background-image: url('./barnett.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed; */
+    height: 50vh;
+    font-family: monospace;
+    letter-spacing: 1em;
+    font-size: 4rem;
+    
 }
 .btn-container{
     display: flex;
     flex-direction: row;
     justify-content: center;
+    
+    margin-top: 0.5%;
 
 }
+
+.fill {
+    margin-left: 30px;
+    font-size: 20px;
+    font-weight: 200;
+    letter-spacing: 1px;
+    padding: 13px 50px 13px;
+    outline: 0;
+    border: 1px solid black;
+    cursor: pointer;
+    position: relative;
+    background-color: rgba(0, 0, 0, 0);
+    color: black;
+    font-family: monospace;
+  }
+  
+  .fill::after {
+    content: "";
+    background-color: #ffe54c;
+    width: 100%;
+    z-index: -1;
+    position: absolute;
+    height: 100%;
+    top: 7px;
+    left: 7px;
+    transition: 0.2s;
+  }
+  
+  .fill:hover::after {
+    top: 0px;
+    left: 0px;
+  }
+  /* BTN 2  */
+  .fill2 {
+    margin-left: 30px;
+    font-size: 20px;
+    font-weight: 200;
+    letter-spacing: 1px;
+    padding: 13px 50px 13px;
+    outline: 0;
+    border: 1px solid black;
+    cursor: pointer;
+    position: relative;
+    background-color: rgba(0, 0, 0, 0);
+    color: white;
+    font-family: monospace;
+  }
+  
+  .fill2::after {
+    content: "";
+    background-color:maroon;
+    width: 100%;
+    z-index: -1;
+    position: absolute;
+    height: 100%;
+    top: 7px;
+    left: 7px;
+    transition: 0.2s;
+  }
+  
+  .fill2:hover::after {
+    top: 0px;
+    left: 0px;
+  }
+
 .horloge-container{
     display: flex;
     flex-direction: row;
     justify-content: center;
     
-    border: 1px solid black;
+    margin-top: 3%;
+    color: bisque;
+    
+    /* border: 1px solid black; */
     height: 20vh;
 
 
 }
+
+
 .chronometre-container{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    margin-top: 3%;
     
-    border: 1px solid black;
-    height: 20vh;
+    /* border: 1px solid black; */
+    
 
 
 }
@@ -50,6 +135,10 @@ body{
     justify-content: center;
     
     
+}
+.tourchrono{
+    display: flex;
+    flex-direction: column;
 }
 
 #dateComplete{
