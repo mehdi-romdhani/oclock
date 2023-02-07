@@ -1,20 +1,18 @@
 document.addEventListener("DOMContentLoaded", () => {
   //jQuery
 
-    $(function () {
-      //hide horloge
-      $(".horloge-container").hide();
-      $("#hor").click(function () {
-        $(".horloge-container").toggle();
-      });
-      //hide chrono
-      $('.chronometre-container').hide();
-      $("#chro").click(function(){
-        $('.chronometre-container').toggle();
-      })
-
+  $(function () {
+    //hide horloge
+    $(".horloge-container").hide();
+    $("#hor").click(function () {
+      $(".horloge-container").toggle();
     });
-
+    //hide chrono
+    $(".chronometre-container").hide();
+    $("#chro").click(function () {
+      $(".chronometre-container").toggle();
+    });
+  });
 
   //Logique pour affichage Horloge
   // instance d'un objet date avec la classe date()
@@ -27,7 +25,7 @@ document.addEventListener("DOMContentLoaded", () => {
   function myClock() {
     const clock = new Date();
     const clockDipsplay = document.getElementById("dateComplete");
-    clockDipsplay.innerHTML = clock.toLocaleTimeString()+"s";
+    clockDipsplay.innerHTML = clock.toLocaleTimeString() + "s";
   }
 
   // Logique du Chronometre
@@ -45,7 +43,8 @@ document.addEventListener("DOMContentLoaded", () => {
   let tourBtn = document.querySelector("#tour");
 
   let displayTour = document.querySelector(".tourchrono");
-  let chronoList=document.querySelector(".chronolist");
+  let chronoList = document.querySelector(".chronolist");
+  let displayFinishMin = document.querySelector(".container-finish-min");
 
   let heures = 0;
   let minutes = 0;
@@ -120,7 +119,6 @@ document.addEventListener("DOMContentLoaded", () => {
     console.log(chronoList);
   };
 
-
   const reset = () => {
     // on reset toutes les variables
     displayChrono.textContent = "00:00:00";
@@ -129,8 +127,8 @@ document.addEventListener("DOMContentLoaded", () => {
     minutes = 0;
     secondes = 0;
     //on supprime les temps de tours
-      chronoList.innerHTML="";
-    
+    chronoList.innerHTML = "";
+
     clearTimeout(timeout);
   };
 
@@ -142,5 +140,121 @@ document.addEventListener("DOMContentLoaded", () => {
   resetBtn.addEventListener("click", reset);
 
   //Logique Minuteur
-  
+
+  //on recupere tout nos elements
+  let hoursEl = document.querySelector("#hours");
+  let minutesEl = document.querySelector("#minutes");
+  let secondsEl = document.querySelector("#secondesMinuteur");
+  let btnStart = document.querySelector(".btn-start-resume");
+  let btnPause = document.querySelector(".btn-pause");
+  let btnStop = document.querySelector(".btn-stope");
+  let btnReset = document.querySelector(".btn-reset");
+  //on recupere la valeur de départ de de l'input pour l'implementer à la fin du chrono
+  let valeurInitTimer=parseInt(document.querySelector("#minutes").value);
+  console.log(typeof valeurInitTimer);
+  // on set les variables pour pouvoir changer leurs valeurs en fonction du comportement du minuteur
+  let interval;
+  let pause = false;
+  let totalSeconds = 0;
+  let totalSecondsBackUp = 0;
+
+  init();
+
+  function init() {
+    // function pour initaliser tous les bouttons du timers
+
+    btnPause.style.display = "none";
+    btnStop.style.display = "none";
+    btnReset.style.display = "none";
+
+    btnStart.addEventListener("click", () => {
+      const hoursMin = parseInt(hoursEl.value);
+
+      const minutesMin = parseInt(minutesEl.value);
+
+      const secondesMin = parseInt(secondsEl.value);
+      console.log(hoursMin, minutesMin, secondesMin);
+
+      totalSecondsBackUp = totalSeconds =
+        hoursMin * 60 * 60 + minutesMin * 60 + secondesMin;
+      if (totalSeconds < 0) {
+        //quand la valeur des inputs est negative, rien ne se passe
+        return;
+      }
+      console.log(totalSeconds);
+
+      startMin();
+      btnPause.style.display = "inline-block";
+      btnStop.style.display = "inline-block";
+      btnReset.style.display = "inline-block";
+      btnStart.style.display = "none";
+      displayFinishMin.style.display="none";
+      valeurInitTimer=5;
+    });
+
+    btnPause.addEventListener("click", () => {
+      //evenement sur le btnPause
+      pause = !pause;
+      if (pause) {
+        btnPause.innerText = "Reprendre";
+      } else {
+        btnPause.innerText = "Pause";
+      }
+    });
+
+    btnStop.addEventListener("click", () => {
+      stopMin();
+      totalSeconds = totalSecondsBackUp;
+      updateInputs();
+      pause = false;
+      btnPause.style.display = "none";
+      btnStop.style.display = "none";
+      btnReset.style.display = "none";
+      btnStart.style.display = "";
+    });
+
+    btnReset.addEventListener("click", () => {
+      totalSeconds = totalSecondsBackUp;
+      updateInputs();
+      displayFinishMin.style.display = "none";
+    });
+  }
+
+  function startMin() {
+    //function pour start le minteur
+    interval = setInterval(() => {
+      if (pause) return;
+      totalSeconds--;
+      updateInputs();
+
+      if (totalSeconds <= 0) {
+        // stopMin();
+        //Création d'une alert qui indique la fin du minuteur
+        displayFinishMin.style.display = "inline-block";
+        btnPause.style.display = "none";
+        btnStop.style.display = "none";
+        btnReset.style.display = "none";
+        btnStart.style.display = "inline-block";
+        
+        //alert('test');
+        stopMin();
+      }
+    }, 1000);
+  }
+
+  function stopMin() {
+    //function stop miniteur
+    interval = clearInterval(interval);
+  }
+
+  function updateInputs() {
+    //function pour les h/m/s defilent
+    const hoursMin = Math.floor(totalSeconds / 60 / 60);
+    const minutesMin = Math.floor(totalSeconds / 60) % 60;
+    const secondesMin = totalSeconds % 60;
+
+    hoursEl.value = hoursMin;
+    minutesEl.value = minutesMin;
+    secondsEl.value = secondesMin;
+  }
 });

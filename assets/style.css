@@ -1,148 +1,197 @@
-body{
-    margin: 0;
-    padding: 0;
-    
-    background-image: url('./barnett.png');
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
+body {
+  margin: 0;
+  padding: 0;
+
+  background-image: url("./barnett.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
-.head-container{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    /* align-items: center; */
-    /* background-image: url('./barnett.png');
+
+.head-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  /* align-items: center; */
+  /* background-image: url('./barnett.png');
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed; */
-    height: 50vh;
-    font-family: monospace;
-    letter-spacing: 1em;
-    font-size: 4rem;
-    
+  height: 50vh;
+  font-family: monospace;
+  letter-spacing: 1em;
+  font-size: 4rem;
 }
-.btn-container{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    
-    margin-top: 0.5%;
-
+.btn-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-top: 0.5%;
 }
 
 .fill {
-    margin-left: 30px;
-    font-size: 20px;
-    font-weight: 200;
-    letter-spacing: 1px;
-    padding: 13px 50px 13px;
-    outline: 0;
-    border: 1px solid black;
-    cursor: pointer;
-    position: relative;
-    background-color: rgba(0, 0, 0, 0);
-    color: black;
-    font-family: monospace;
-  }
+  margin-left: 30px;
+  font-size: 20px;
+  font-weight: 200;
+  letter-spacing: 1px;
+  padding: 13px 50px 13px;
+  outline: 0;
+  border: 1px solid black;
+  cursor: pointer;
+  position: relative;
+  background-color: rgba(0, 0, 0, 0);
+  color: black;
+  font-family: monospace;
+}
+
+.fill::after {
+  content: "";
+  background-color: #ffe54c;
+  width: 100%;
+  z-index: -1;
+  position: absolute;
+  height: 100%;
+  top: 7px;
+  left: 7px;
+  transition: 0.2s;
+}
+
+.fill:hover::after {
+  top: 0px;
+  left: 0px;
+}
+/* BTN 2  */
+.fill2 {
+  margin-left: 30px;
+  font-size: 20px;
+  font-weight: 200;
+  letter-spacing: 1px;
+  padding: 13px 50px 13px;
+  outline: 0;
+  border: 1px solid black;
+  cursor: pointer;
+  position: relative;
+  background-color: rgba(0, 0, 0, 0);
+  color: white;
+  font-family: monospace;
+}
+
+.fill2::after {
+  content: "";
+  background-color: maroon;
+  width: 100%;
+  z-index: -1;
+  position: absolute;
+  height: 100%;
+  top: 7px;
+  left: 7px;
+  transition: 0.2s;
+}
+
+.fill2:hover::after {
+  top: 0px;
+  left: 0px;
+}
+
+.horloge-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+
+  margin-top: 3%;
+  color: bisque;
+
+  /* border: 1px solid black; */
+  height: 20vh;
+}
+
+.chronometre-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 3%;
+
+  /* border: 1px solid black; */
+}
+.chro {
+  display: flex;
+  flex-direction: row;
+  margin: 2%;
+  font-family: monospace;
+  font-size: 2rem;
+}
+.btn-chrono {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+.tourchrono {
+  display: flex;
+  flex-direction: column;
+}
+
+#dateComplete {
+  font-size: 2rem;
+  font-family: monospace;
+}
+
+/******** minuteur **********/
+
+.minuteur-container {
+  margin-top: 2%;
+  padding: 5% 5%;
+  /* border: 1px solid black; */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.min-in-cont {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
+}
+
+.minuteur-container .input-min {
+  width: 25%;
+  height: 10vh;
+  margin-left: 2%;
+  padding-left: 5%;
+  background-color: #2E0F15;
+  /* border-radius: 50px; */
+  border-style: hidden;
+  color: black;
+  font-family: monospace;
+  font-size: 2rem;
+  box-shadow: maroon;
+  text-align: center;
+  color: white;
   
-  .fill::after {
-    content: "";
-    background-color: #ffe54c;
-    width: 100%;
-    z-index: -1;
-    position: absolute;
-    height: 100%;
-    top: 7px;
-    left: 7px;
-    transition: 0.2s;
-  }
+}
+
+.btn-container-min {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
+  margin-top: 3%;
+  /* border: 1px solid black; */
+}
+
+.container-finish-min {
+  display: none;
+  flex-direction: row;
+  justify-content: center;
+  /* width: 100vw; */
   
-  .fill:hover::after {
-    top: 0px;
-    left: 0px;
-  }
-  /* BTN 2  */
-  .fill2 {
-    margin-left: 30px;
-    font-size: 20px;
-    font-weight: 200;
-    letter-spacing: 1px;
-    padding: 13px 50px 13px;
-    outline: 0;
-    border: 1px solid black;
-    cursor: pointer;
-    position: relative;
-    background-color: rgba(0, 0, 0, 0);
-    color: white;
-    font-family: monospace;
-  }
-  
-  .fill2::after {
-    content: "";
-    background-color:maroon;
-    width: 100%;
-    z-index: -1;
-    position: absolute;
-    height: 100%;
-    top: 7px;
-    left: 7px;
-    transition: 0.2s;
-  }
-  
-  .fill2:hover::after {
-    top: 0px;
-    left: 0px;
-  }
+  border: 1px solid black;
+  margin-top: 2.5%;
+  font-family: monospace;
+  font-size: 3rem;
+  font-weight: 900;
+  margin-left: 2%;
+  color: white;
 
-.horloge-container{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    
-    margin-top: 3%;
-    color: bisque;
-    
-    /* border: 1px solid black; */
-    height: 20vh;
-
-
-}
-
-
-.chronometre-container{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin-top: 3%;
-    
-    /* border: 1px solid black; */
-    
-
-
-}
-.chro{
-    display: flex;
-    flex-direction: row;
-    margin:2%;
-    font-family: monospace;
-    font-size: 2rem;
-}
-.btn-chrono{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    
-    
-}
-.tourchrono{
-    display: flex;
-    flex-direction: column;
-}
-
-#dateComplete{
-
-    font-size: 2rem;
-    font-family: monospace;
 }
